@@ -1,0 +1,80 @@
+:root {
+  --dark: #212529;
+  --gray: #2ecc71;
+  --teal: #12b886;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype'),
+  font-style: normal;
+}
+
+* {
+    font-family:'Roboto', sans-serif;
+}
+
+.teal-bg {
+    background-color: var(--teal);  
+}
+
+.gray-text {
+    color:var(--gray);
+}
+
+ol {
+  list-style-type: none;
+  padding-left: 0; 
+}
+
+.pointer {
+    cursor:pointer;
+}
+
+.reset-button {
+  background-color: transparent; 
+  border: none; 
+  padding: 0; 
+  margin: 0; 
+  box-shadow: none; 
+  font-size: inherit; 
+  line-height: inherit; 
+  color: inherit; 
+  text-align: inherit; 
+  text-transform: none; 
+  cursor: default; 
+  appearance: none;
+}
+
+img {
+    transition: filter 0.3s ease;
+}
+
+img:hover {
+  filter: brightness(1.5); 
+}
+
+.icon {
+    width:75%;
+    height:75%;
+}
+
+.w-30 {
+    width:30%;
+}
+
+.dark-bg {
+    background-color:var(--dark);
+}
+
+.gray-bg {
+    background-color:var(--gray);
+}
+
+.h-100vh {
+    height:100vh;
+}
+
+.fs-big {
+  font-size: clamp(16px, 12vw, 256px); 
+}

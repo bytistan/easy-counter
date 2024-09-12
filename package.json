@@ -1,0 +1,43 @@
+{
+  "name": "counter",
+  "version": "1.0.0",
+  "description": "Created for tubitak project",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "author": {
+    "name": "Doğukan AL",
+    "email": "al_dokan_20@hotmail.com"
+  },
+  "license": "ISC",
+  "homepage": "https://www.linkedin.com/in/do%C4%9Fukan-al-70313723a/",
+  "devDependencies": {
+    "electron": "^32.1.0",
+    "electron-builder": "^25.0.5"
+  },
+  "build": {
+    "appId": "com.example.counter",
+    "productName": "CounterApp",
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "maintainer": "Doğukan AL <al_dokan_20@hotmail.com>"
+    }
+  }
+}

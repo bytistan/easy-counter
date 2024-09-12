@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" /> <link rel="stylesheet" href="./css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="./css/style.css"> 
+
+</head>
+<body class="dark-bg"> <main id="mainPage" class="container-fluid h-100vh position-relative">
+        <div class="row h-100">
+            <div class="col h-100 d-flex justify-content-center align-items-center border-end border-5">
+                <p id="time" class="gray-text fs-big text-white">00:60</p> 
+            </div>
+            <div class="col h-100 d-flex justify-content-center align-items-center">
+                <p id="money" class="gray-text fs-big text-white">200 ₺</p>
+            </div>
+        </div> 
+
+        <div class="position-absolute bottom-0 start-50 translate-middle-x bg-white w-25 rounded-3 mb-3">
+            <div class="py-3">
+                <ol class="d-flex justify-content-center align-items-center gap-3 m-0 p-0">
+                    <li>
+                        <div id="logout" class="pointer d-flex justify-content-center align-items-center">
+                            <img class="icon" src="../assets/logout.svg"> 
+                        </div> 
+                    </li> 
+                    <li>
+                        <div id="play" class="pointer d-flex justify-content-center align-items-center" >
+                            <img class="icon" src="../assets/play.svg"> 
+                        </div> 
+
+                        <div id="rest" class="pointer d-none d-flex justify-content-center align-items-center">
+                            <img class="icon" src="../assets/rest.svg"> 
+                        </div> 
+                    </li> 
+                    <li>
+                        <button type="button" class="btn p-0 m-0" data-bs-toggle="modal" data-bs-target="#sModal">
+                            <img class="icon" src="../assets/settings.svg"> 
+                        </button>
+                    </li> 
+                </ol>  
+            </div> 
+        </div>
+    </main>
+
+    <div class="modal fade" id="sModal" tabindex="-1" aria-labelledby="sModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="sModalLabel">Ayarlar</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="amount" class="col-form-label">Miktar :</label>
+                            <input type="text" class="form-control" id="amount">
+                        </div>
+                        <div id="warn" class="bg-danger p-3 d-none rounded-3 fw-bold">
+                            <p class="text-white mb-0">Lütfen geçerli bir değer giriniz !!!</p>
+                        </div>
+                        <div id="info" class="teal-bg p-3 d-none rounded-3 fw-bold">
+                            <p class="text-white mb-0">Değişiklikler başarıyla kaydedildi.</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary" id="save">Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./js/handler.js"></script>
+    
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        document.getElementById("logout").addEventListener("click", () => {
+            ipcRenderer.send('app-close');
+        });
+    </script>
+</body>
+</html>
